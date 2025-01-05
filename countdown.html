@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #ffffff;
+      color: rgb(0, 0, 0);
+      font-family: 'Arial', sans-serif;
+    }
+
+    .countdown-container {
+      font-size: 100px;
+      font-weight: bold;
+      padding: 20px;
+      background-color: transparent;
+      border-radius: 10px;
+    }
+
+    .countdown-text {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="countdown-container">
+    <p class="countdown-text" id="countdown">0</p>
+  </div>
+
+  <script>
+    let count = 0; //(Change The Value)
+    const endValue = 6000; //(change the value)
+    const duration = 0.1; // Total time for countdown (in milliseconds)
+    const incrementRate = duration / endValue; // Speed of increment (adjusted for faster timing)
+
+    function updateCountdown() {
+      if (count <= endValue) {
+        document.getElementById('countdown').textContent = Math.floor(count);
+        count += 2; // Increment by 2 for a faster countdown
+      } else {
+        clearInterval(countdownInterval);
+      }
+    }
+
+    // Update every incrementRate milliseconds
+    const countdownInterval = setInterval(updateCountdown, incrementRate);
+  </script>
+
+</body>
+
+</html>
